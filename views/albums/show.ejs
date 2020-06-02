@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+<h1><%= title %></h1>
+<hr>
+<div class="infoBlock coverImage"><img src="<%= album.coverImageUrl %>"></div>
+<div class="infoBlock">
+    <div class="albumInfo">Band: <%= album.bandName %></div><br>
+    <div class="albumInfo">Album: <%= album.albumName %></div><br>
+    <div class="albumInfo">Release Year: <%= album.releaseYear %></div><br>
+</div>
+<form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-danger">Delete Album</button>
+</form><br>
+<form method="POST" action="/albums/<%= album._id %>/comments">
+  <textarea name="content"></textarea><br>
+  <input type="submit" value="Add Comment">
+</form>
+
+<% if (album.comments.length) { %>
+  <table>
+    <tbody>
+      <% let total = 0 %>
+      <% album.comments.forEach(function(c) { %>
+        <% total += r.rating %>
+        <tr>
+          <td><%= c.createdAt.toLocaleDateString() %></td>
+          <td><%= c.content %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>Be The First To Comment</h5>
+<% } %>
+<br><a href="/albums">BACK TO ALBUMS</a>
+<%- include('../partials/footer') %>

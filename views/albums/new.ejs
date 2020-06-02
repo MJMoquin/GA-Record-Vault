@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<h1><%= title %></h1>
+
+<form action="/albums" method="POST">
+    <label>Band:</label>
+    <input type="text" name="bandName"><br>
+    <label>Album:</label>
+    <input type="text" name="albumName"><br>
+    <label>Release Year:</label>
+    <input type="text" name="releaseYear"><br>
+    <label>Cover Art:</label>
+    <input type="file" accept="image/*" name="coverImageUrl"><br>
+    <input class="btn btn-info" type="submit" value="Add Album">
+  </form>
+  <br><a href="/albums">BACK TO ALBUMS</a>
+
+<%- include('../partials/footer') %>
