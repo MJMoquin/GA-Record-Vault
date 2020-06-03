@@ -9,8 +9,8 @@ router.post('/', isLoggedIn, albumsCtrl.create);
 router.delete('/:id', isLoggedIn, albumsCtrl.delete);
 
 function isLoggedIn(req, res, next) {
-    if ( req.isAuthenticated() ) return next();
-    res.redirect('/auth/google');
-  }
+  if ( req.isAuthenticated() ) return next();
+  res.redirect('/auth/google');
+}
 
 module.exports = router;

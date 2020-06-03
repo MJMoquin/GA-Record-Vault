@@ -12,5 +12,4 @@ function create(req, res) {
       res.redirect(`/albums/${album._id}`);
     });
   });
-  console.log(req.body)
 }

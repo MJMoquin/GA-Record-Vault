@@ -5,7 +5,16 @@ module.exports = {
     new: newAlbum,
     create,
     show,
-    delete: deleteOne
+    delete: deleteOne,
+    search
+}
+
+function search(req, res) {
+  axios.get(`http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${req.body.artist}&api_key=${process.env.API_KEY}`)
+  .then(response => {
+      console.log(response.data)
+      res.render('albums/new', {albums: response.data.data, user: req.user})
+  })
 }
 
 function index(req, res) {
