@@ -23,7 +23,7 @@
       <% album.comments.forEach(function(c) { %>
         <div class="commentText">
           <%= c.content %>
-          <span class="commentInfo"> at <%= c.createdAt.toLocaleDateString() %> by <em>User</em></span>
+          <span class="commentInfo"> at <%= c.createdAt.toLocaleDateString() %> by <em><%= c.user %></em></span>
         </div>
       <% }); %>
 <% } else { %>

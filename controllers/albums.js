@@ -24,7 +24,6 @@ function create(req, res) {
     const album = new Album(req.body);
     album.save(function(err) {
     if (err) return res.redirect('/albums/new');
-    console.log(album);
     res.redirect('/albums')
 //     res.redirect(`/albums/${movie._id}`);
   });
