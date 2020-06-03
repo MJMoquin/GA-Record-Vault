@@ -1,6 +1,17 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: monospace;
+  background-color: rgb(196, 228, 233);
+}
+
+hr {
+  border: 2px solid rgb(116, 3, 3);
+}
+
+textarea {
+  width: 400px;
+  height: 100px;
 }
 
 a {
@@ -22,6 +33,14 @@ font-size: 25px;
 
 .coverImage {
   margin: 10px;
+}
+
+.commentInfo {
+  font-size: 10px;
+}
+
+.commentText {
+  color: orangered;
 }
 
 img {

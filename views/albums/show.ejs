@@ -2,34 +2,33 @@
 <h1><%= title %></h1>
 <hr>
 <div class="infoBlock coverImage"><img src="<%= album.coverImageUrl %>"></div>
-<div class="infoBlock">
-    <div class="albumInfo">Band: <%= album.bandName %></div><br>
-    <div class="albumInfo">Album: <%= album.albumName %></div><br>
-    <div class="albumInfo">Release Year: <%= album.releaseYear %></div><br>
+<div class="infoBlock albumInfo">
+    <div>Band: <%= album.bandName %></div>
+    <div>Album: <%= album.albumName %></div>
+    <div>Release Year: <%= album.releaseYear %></div>
+    <div>< SongName ></div>
+    <div>< SongName ></SongName></div>
+    <div>< SongName ></div>
 </div>
 <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
-    <button class="btn btn-danger">Delete Album</button>
+    <button class="btn btn-danger">Remove Album</button>
 </form><br>
 <form method="POST" action="/albums/<%= album._id %>/comments">
   <textarea name="content"></textarea><br>
   <input type="submit" value="Add Comment">
-</form>
-
+</form><br>
+<div>
 <% if (album.comments.length) { %>
-  <table>
-    <tbody>
-      <% let total = 0 %>
+  <h4>Comments:</h4>
       <% album.comments.forEach(function(c) { %>
-        <% total += r.rating %>
-        <tr>
-          <td><%= c.createdAt.toLocaleDateString() %></td>
-          <td><%= c.content %></td>
-        </tr>
+        <div class="commentText">
+          <%= c.content %>
+          <span class="commentInfo"> at <%= c.createdAt.toLocaleDateString() %> by <em>User</em></span>
+        </div>
       <% }); %>
-    </tbody>
-  </table>
 <% } else { %>
   <h5>Be The First To Comment</h5>
 <% } %>
-<br><a href="/albums">BACK TO ALBUMS</a>
+</div>
+<br><a class="btn btn-info" href="/albums">BACK TO ALBUMS</a>
 <%- include('../partials/footer') %>

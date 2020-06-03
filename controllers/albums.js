@@ -20,7 +20,6 @@ function newAlbum(req, res) {
 
 function create(req, res) {
     req.body.coverImageUrl = "/images/" + req.body.coverImageUrl
-    console.log(req.body)
     const album = new Album(req.body);
     album.save(function(err) {
     if (err) return res.redirect('/albums/new');
@@ -33,7 +32,7 @@ function create(req, res) {
 function show(req, res) {
   Album.findById(req.params.id, function(err, album){
     console.log(req.params.id)
-    res.render('albums/show', {title: 'Album Detail',album});
+    res.render('albums/show', {title: 'Album Details',album});
   })
   
 }

@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-  userId: {type: String},
+  userId: {type: Schema.Types.ObjectId, ref: 'User'},
   content: String
 }, {
   timestamps: true
 });
 
 const albumSchema = new Schema({
-    userId: {type: String},
+    userId: {type: Schema.Types.ObjectId, ref: 'User'},
     bandName: {type: String},
     albumName: {type: String},
     releaseYear: {type: Number},
