@@ -19,6 +19,7 @@ function newAlbum(req, res) {
 }
 
 function create(req, res) {
+    req.body.userId = req.user
     req.body.coverImageUrl = "/images/" + req.body.coverImageUrl
     const album = new Album(req.body);
     album.save(function(err) {
