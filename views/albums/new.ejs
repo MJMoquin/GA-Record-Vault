@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <h1><%= title %></h1>
-
+<!-- 
 <form action="/albums" method="POST">
     <label>Band:</label>
     <input type="text" name="bandName"><br>
@@ -13,6 +13,18 @@
     <input type="file" accept="image/*" name="coverImageUrl"><br>
     <input class="btn btn-success" type="submit" value="Add Album">
   </form>
-  <br><a class="btn btn-info" href="/albums">BACK TO ALBUMS</a>
+  <br><a class="btn btn-info" href="/albums">BACK TO ALBUMS</a> -->
+
+  <h1>Search Page</h1>
+  <form action="/albums/query" method="POST">
+      <input type="text" name="query">
+      <button type="submit">Search</button>
+  </form>
+  <% if(albums){ %>
+    <% albums.forEach((album) => { %>
+      <%= album.name %><br>
+    <% })%>
+  <% } %>
+
 
 <%- include('../partials/footer') %>
