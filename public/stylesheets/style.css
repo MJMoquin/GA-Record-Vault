@@ -27,14 +27,6 @@ font-size: 25px;
   float: right;
 }
 
-.infoBlock {
-  display: inline-block;
-}
-
-.coverImage {
-  margin: 10px;
-}
-
 .commentInfo {
   font-size: 10px;
 }
@@ -57,4 +49,14 @@ a > img {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.albumDetailLayout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.trackListing {
+  font-size: 15px;
 }

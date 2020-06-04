@@ -10,10 +10,7 @@ const commentSchema = new Schema({
 
 const albumSchema = new Schema({
     userId: {type: Schema.Types.ObjectId, ref: 'User'},
-    bandName: {type: String},
-    albumName: {type: String},
-    releaseYear: {type: Number},
-    coverImageUrl: {type: String},
+    albumDetails: [],
     comments: {type: [commentSchema]}
   }, {
     timestamps: true

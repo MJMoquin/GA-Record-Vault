@@ -2,7 +2,7 @@
 
 <h1><%= title %></h1>
 <!-- 
-<form action="/albums" method="POST">
+
     <label>Band:</label>
     <input type="text" name="bandName"><br>
     <label>Album:</label>
@@ -12,10 +12,9 @@
     <label>Cover Art:</label>
     <input type="file" accept="image/*" name="coverImageUrl"><br>
     <input class="btn btn-success" type="submit" value="Add Album">
-  </form>
+  
 -->
 
-  <h1>Search Page</h1>
   <form action="/albums/query" method="POST">
       Artist:
       <input type="text" name="artistName"><br>
@@ -24,10 +23,19 @@
       <button type="submit">Search</button>
   </form>
   <hr>
+
   <% if(albums){ %>
     <% albums.forEach((album) => { %>
-      <% if (album.artist.toLowerCase().includes(artistName.toLowerCase())) { %>
-        <div class="displayAlbumInfo"><img src="<%= album.image[0]['#text'] %>"><h4><%= album.name %> - <%= album.artist %></h4> </div><br>
+      <% if (album.artist.toLowerCase().includes(artistName.toLowerCase()) && album.mbid) { %>
+        
+        <form action="/albums" method="POST">
+          <div class="displayAlbumInfo">
+            <input type="hidden" name="mbid" value="<%= album.mbid %>">
+            <input class="btn btn-success" type="submit" value="Add Album">
+            <img src="<%= album.image[0]['#text'] %>"><h4><%= album.name %> - <%= album.artist %></h4>
+          </div>
+        </form><br>
+
      <% } %>
     <% })%>
   <% } else {%>

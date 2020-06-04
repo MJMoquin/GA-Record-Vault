@@ -29,16 +29,16 @@ function newAlbum(req, res) {
     res.render('albums/new', {title: 'Add New Album', albums: null})
 }
 
-function create(req, res) {
-    req.body.userId = req.user
-    req.body.coverImageUrl = "/images/" + req.body.coverImageUrl
-    const album = new Album(req.body);
-    album.save(function(err) {
-    if (err) return res.redirect('/albums/new');
-    res.redirect('/albums')
-//     res.redirect(`/albums/${movie._id}`);
-  });
-}
+// function create(req, res) {
+//   req.body.userId = req.user
+//   req.body.coverImageUrl = "/images/" + req.body.coverImageUrl
+//   const album = new Album(req.body);
+//   album.save(function(err) {
+//   if (err) return res.redirect('/albums/new');
+//   res.redirect('/albums')
+//   res.redirect(`/albums/${movie._id}`);
+//   });
+// }
 
 function show(req, res) {
   Album.findById(req.params.id, function(err, album){
@@ -57,3 +57,18 @@ function deleteOne(req, res) {
       res.redirect('/albums')
     })
   }
+
+
+function create(req, res) {
+  req.body.userId = req.user
+  axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getInfo&api_key=${process.env.API_KEY}&mbid=${req.body.mbid}&format=json`)
+  .then(response => {
+    req.body.albumDetails = response.data.album
+    console.log(req.body)
+    const album = new Album(req.body);
+    album.save(function(err) {
+    if (err) return res.redirect('/albums/new');
+    res.redirect('/albums')
+    })
+  })
+}

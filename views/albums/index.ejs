@@ -5,7 +5,7 @@
 </div>
 <div>
     <% albums.forEach(function(a) { %>
-        <a class="albumInfo" href="/albums/<%= a._id %>"><img src="<%= a.coverImageUrl %>" title="<%= a.bandName %> : <%= a.albumName %>"></a>
+        <a class="albumInfo" href="/albums/<%= a._id %>"><img src="<%= a.albumDetails[0].image[2]['#text'] %>" title="<%= a.albumDetails[0].artist %> : <%= a.albumDetails[0].name %>"></a>
     <% }); %>
 </div>
 
