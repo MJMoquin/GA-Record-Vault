@@ -13,18 +13,27 @@
     <input type="file" accept="image/*" name="coverImageUrl"><br>
     <input class="btn btn-success" type="submit" value="Add Album">
   </form>
-  <br><a class="btn btn-info" href="/albums">BACK TO ALBUMS</a> -->
+-->
 
   <h1>Search Page</h1>
   <form action="/albums/query" method="POST">
-      <input type="text" name="query">
+      Artist:
+      <input type="text" name="artistName"><br>
+      Album :
+      <input type="text" name="query"><br><br>
       <button type="submit">Search</button>
   </form>
+  <hr>
   <% if(albums){ %>
     <% albums.forEach((album) => { %>
-      <%= album.name %><br>
+      <% if (album.artist.toLowerCase().includes(artistName.toLowerCase())) { %>
+        <div class="displayAlbumInfo"><img src="<%= album.image[0]['#text'] %>"><h4><%= album.name %> - <%= album.artist %></h4> </div><br>
+     <% } %>
     <% })%>
+  <% } else {%>
+    <h4>There are no results matching your search criteria</h4><br>
   <% } %>
 
+<br><a class="btn btn-info" href="/albums">BACK TO ALBUMS</a>
 
 <%- include('../partials/footer') %>

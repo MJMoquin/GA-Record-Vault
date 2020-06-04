@@ -11,10 +11,11 @@ module.exports = {
 }
 
 function search(req, res) {
+  artistName = req.body.artistName
   axios.get(`http://ws.audioscrobbler.com/2.0/?api_key=${process.env.API_KEY}&method=album.search&album=${req.body.query}&format=json`)
   .then(response => {
       console.log(response.data)
-      res.render('albums/new', {title: "Search for Album", albums: response.data.results.albummatches.album, user: req.user})
+      res.render('albums/new', {title: "Search for Album", albums: response.data.results.albummatches.album, artistName, user: req.user})
   })
 }
 

@@ -45,9 +45,16 @@ font-size: 25px;
 
 img {
   max-height: 400px;
+  margin: 10px;
 }
 
 a > img {
   max-height: 200px;
   margin: 10px;
+}
+
+.displayAlbumInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
