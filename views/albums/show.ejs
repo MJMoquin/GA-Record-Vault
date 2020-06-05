@@ -1,30 +1,30 @@
 <%- include('../partials/header') %>
 <h1><%= title %></h1>
 <hr>
-<div class="albumDetailLayoff">
-  <div class="infoBlock coverImage">
+<div>
+  <h2><%= album.albumDetails[0].artist %> : <%= album.albumDetails[0].name %></h2>
+</div>
+<div class="albumDetailLayout">
+  <div class="infoBlock coverImage ">
     <img src="<%= album.albumDetails[0].image[3]['#text'] %>">
   </div>
-  <div class="infoBlock albumInfo">
-      <div>Band: <%= album.albumDetails[0].artist %></div>
-      <div>Album: <%= album.albumDetails[0].name %></div>
+  <div class="infoBlock albumInfo ">
       <div>Tracks:
-        <ul class="trackListing">  
+        <ol class="trackListing">  
         <% album.albumDetails[0].tracks.track.forEach(t => { %>
           <% const minutes = Math.floor(t.duration / 60); %>
           <% const seconds = t.duration % 60; %>
           <li><%= t.name %> ~ <%= minutes %>:<%= seconds.toString().padStart(2, '0') %></li>
         <% }) %> 
-        </ul>
+        </ol>
       </div>
   </div>
   <br>
-  <div>
-    <div><h4>Info:</h4><br>
-      <p><%= album.albumDetails[0].wiki.summary %></p>
-    </div>
-  </div><br>
+</div><br>
+<div><h4>Info:</h4><br>
+  <p><%= album.albumDetails[0].wiki.summary.split('<a')[0] %></p>
 </div>
+
 <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
     <button class="btn btn-danger">Remove Album</button>
 </form><br>
@@ -45,5 +45,5 @@
   <h5>Be The First To Comment</h5>
 <% } %>
 </div>
-<br><a class="btn btn-info" href="/albums">BACK TO ALBUMS</a>
+<br>
 <%- include('../partials/footer') %>

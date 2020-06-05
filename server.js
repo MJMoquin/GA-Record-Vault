@@ -14,7 +14,6 @@ const albumsRouter = require('./routes/albums');
 const commentsRouter = require('./routes/comments');
 const methodOverride = require('method-override');
 const axios = require('axios');
-
 var app = express();
 
 // view engine setup

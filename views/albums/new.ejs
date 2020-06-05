@@ -20,7 +20,7 @@
       <input type="text" name="artistName"><br>
       Album :
       <input type="text" name="query"><br><br>
-      <button type="submit">Search</button>
+      <button class="btn btn-success" type="submit">Search</button>
   </form>
   <hr>
 
@@ -41,7 +41,5 @@
   <% } else {%>
     <h4>There are no results matching your search criteria</h4><br>
   <% } %>
-
-<br><a class="btn btn-info" href="/albums">BACK TO ALBUMS</a>
 
 <%- include('../partials/footer') %>
