@@ -17,6 +17,9 @@ This app will help you keep track of your vinyl/cd collection. It will allow you
 #### < Search/Add Page \>
 ![Search/Add Page](assets/search_results.png)
 
+#### < Detail Page \>
+![Detail Page](assets/detail_page.png)
+
 #### < Profile Page \>
 ![Profile Page](assets/profile_page.png)
 
