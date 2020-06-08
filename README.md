@@ -30,7 +30,7 @@ When you first load the page, you will be brought to a landing page that will re
 
 ### Future Features:
 
-* Add Variable Betting
-* <del>Add Win/Loss Message<del>
-* Add Gameplay Sounds
-* Add Card Animation
+* Add ability to view other users' collections
+* Fix duplicate album addition
+* Have all users seeiing the same instance of an album
+* Add user ability to select favorite tracks
