@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+
+<form action="/albums/user/<%= user._id%>?_method=PUT" method="POST">
+    <h3>User Name: <%= user.name %></h3>
+    <h3>Email: <%= user.email %></h3>
+    <h3>Screen Name: <%= user.nickName %></h3> 
+    <input type="text" name="nickName">
+    <input class="btn btn-success" type="submit" value="Change Screen Name">
+</form>
+
+<%- include('../partials/footer') %>

@@ -22,8 +22,10 @@
   <br>
 </div><br>
 <div><h4>Info:</h4><br>
-  <p><%= album.albumDetails[0].wiki.summary.split('<a')[0] %></p>
-</div>
+  <% if (album.albumDetails[0].wiki) { %>
+    <%= album.albumDetails[0].wiki.summary.split('<a')[0] %>
+  <% } %> 
+</div><br>
 
 <form action="/albums/<%= album._id %>?_method=DELETE" method="POST">
     <button class="btn btn-danger">Remove Album</button>

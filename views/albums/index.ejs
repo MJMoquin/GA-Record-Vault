@@ -4,8 +4,12 @@
 </div>
 <div>
     <% albums.forEach(function(a) { %>
-        <a class="albumInfo" href="/albums/<%= a._id %>"><img src="<%= a.albumDetails[0].image[2]['#text'] %>" title="<%= a.albumDetails[0].artist %> : <%= a.albumDetails[0].name %>"></a>
+        <% if (user._id.toString() === a.userId.toString()) { %>
+            <a class="albumInfo" href="/albums/<%= a._id %>"><img src="<%= a.albumDetails[0].image[2]['#text'] %>" 
+            title="<%= a.albumDetails[0].artist %> : <%= a.albumDetails[0].name %>"></a>
+        <% } %>
     <% }); %>
+    
 </div>
 
 <%- include('../partials/footer') %>

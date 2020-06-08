@@ -1,4 +1,5 @@
 const Album = require('../models/album');
+const User = require('../models/user')
 const axios = require('axios');
 
 module.exports = {
@@ -7,7 +8,23 @@ module.exports = {
     create,
     show,
     delete: deleteOne,
-    search
+    search,
+    showUser,
+    updateUser
+}
+
+function updateUser(req, res) {
+  User.findByIdAndUpdate(req.user._id, {
+    nickName: req.body.nickName
+  })
+  console.log(req.body + '<-- req.body')
+  res.redirect('/albums/user')
+}
+
+function showUser(req, res) {
+  User.findById(req.user._id)
+  user = req.user
+  res.render('albums/user', {user, showAdd: false})
 }
 
 function create(req, res) {
@@ -15,7 +32,6 @@ function create(req, res) {
   axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getInfo&api_key=${process.env.API_KEY}&mbid=${req.body.mbid}&format=json`)
   .then(response => {
     req.body.albumDetails = response.data.album
-    console.log(req.body)
     const album = new Album(req.body);
     album.save(function(err) {
     if (err) return res.redirect('/albums/new');
@@ -34,25 +50,20 @@ function search(req, res) {
 }
 
 function index(req, res) {
-  showAdd = true
   Album.find({}, function(err, albums) {
-    res.render('albums/index', { title: 'My Albums', albums });
+    res.render('albums/index', { title: 'My Albums', albums, user: req.user, showAdd: true });
   });
 }
 
 function newAlbum(req, res) {
-  showAdd = false
-  res.render('albums/new', {title: 'Add New Album', albums: null})
+  res.render('albums/new', {title: 'Add New Album', albums: null, showAdd: false})
 }
 
 
 function show(req, res) {
-  showAdd = false
   Album.findById(req.params.id, function(err, album){
     console.log(req.params.id)
-    res.render('albums/show', {title: 'Album Details',album});
-    console.log(req.user + "<== user")
-    console.log(album + "<== album")
+    res.render('albums/show', {title: 'Album Details', album, showAdd: false});
   }) 
 }
 
