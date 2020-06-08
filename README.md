@@ -1,6 +1,9 @@
 # Record-Vault
 ## Welcome to my Unit 2 project: [Record-Vault](https://mjm-record-vault.herokuapp.com/)
 
+[Trello Board](https://trello.com/b/9T4xujUM/ga-record-vault)
+[LinkedIn](https://www.linkedin.com/in/matthewmoquin/)
+
 ### Description:
 This app will help you keep track of your vinyl/cd collection. It will allow you to search for and add your albmums from a vast database. Once an album is added it will automatically populate with the album cover, track listing and brief summary of the record.
 
@@ -34,3 +37,6 @@ When you first load the page, you will be brought to a landing page that will re
 * Fix duplicate album addition
 * Have all users seeiing the same instance of an album
 * Add user ability to select favorite tracks
+
+### Credits:
+* External API: LastFM
