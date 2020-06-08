@@ -58,3 +58,7 @@ a > img {
 .trackListing {
   font-size: 15px;
 }
+
+.profilePic {
+  height: 40px;
+}

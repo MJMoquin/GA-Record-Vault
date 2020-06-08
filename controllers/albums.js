@@ -57,7 +57,7 @@ function search(req, res) {
 
 function index(req, res) {
   Album.find({}, function(err, albums) {
-    res.render('albums/index', { title: 'My Albums', albums, user: req.user, showAdd: true });
+    res.render('albums/index', { title: req.user.nickName , albums, user: req.user, showAdd: true });
   });
 }
 
