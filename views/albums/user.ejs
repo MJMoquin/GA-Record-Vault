@@ -1,10 +1,9 @@
 <%- include('../partials/header') %>
 
 <form action="/albums/user?_method=PUT" method="POST">
+    <img src="<%= user.avatar %>">
     <h3>User Name: <%= user.name %></h3>
-    <input type="hidden" name="name" value="<%= user.name %>">
     <h3>Email: <%= user.email %></h3>
-    <input type="hidden" name="email" value="<%= user.email %>">
     <h3>Screen Name: <%= user.nickName %></h3> 
     <input type="text" name="nickName">
     <input class="btn btn-success" type="submit" value="Change Screen Name">
