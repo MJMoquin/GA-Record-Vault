@@ -29,11 +29,9 @@ font-size: 25px;
 
 .commentInfo {
   font-size: 10px;
-}
-
-.commentText {
   color: orangered;
 }
+
 
 img {
   max-height: 400px;

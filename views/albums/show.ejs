@@ -38,7 +38,7 @@
 <% if (album.comments.length) { %>
   <h4>Comments:</h4>
       <% album.comments.forEach(function(c) { %>
-        <div class="commentText">
+        <div>
           <%= c.content %>
           <span class="commentInfo"> at <%= c.createdAt.toLocaleDateString() %> by <em><%= c.user %></em></span>
         </div>

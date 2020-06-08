@@ -15,7 +15,7 @@ function(accessToken, refreshToken, profile, cb) {
           return cb(null, user);
         } else {
           var newUser = new User({
-            nickName: null,
+            nickName: profile.displayName,
             name: profile.displayName,
             email: profile.emails[0].value,
             googleId: profile.id
